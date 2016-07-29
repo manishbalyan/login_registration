@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<h2 id="login-heading">Login Form</h2>
+<form ngFormModel="loginForm">
+    <div class=container>
+        <div class=row>
+            <div>
+                <label>Email</label>
+                <input type="email" class="form-control" ngFormControl="loginForm.controls['email]">
+            </div><br/>
+
+            <div>
+                <label>Password</label>
+                <input type="password" id=password class=form-control ngFormControl="loginForm.controls['email]">
+            </div><br/>
+
+            <button class="btn btn-primary">Login</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>

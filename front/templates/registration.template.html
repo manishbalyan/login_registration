@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+    <h2 id="registration-heading">Registration Form</h2>
+    <form #myForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class=container>
+            <div class=row>
+                <div>
+                    <label>Name</label>
+                    <input id=name class=form-control ngControl="name" [(ngModel)]="newUser.name" required name="name">
+                </div><br/>
+
+                <div>
+                    <label>Email</label>
+                    <input type="email" class=form-control ngControl="email" [(ngModel)]="newUser.email" required name="email">
+                </div><br/>
+
+                <div>
+                    <label>Password</label>
+                    <input type="password" id=password class=form-control ngControl="password" [(ngModel)]="newUser.password" required name="password">
+                </div><br/>
+
+                <button class="btn btn-primary" type="submit">Register</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
