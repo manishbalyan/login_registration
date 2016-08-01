@@ -32,11 +32,11 @@ def UserViewSet(request, format=None):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'POST'])
-def LoginViewSet(request, format=None):
+def LoginViewSet(request):
     data = (request.data)
 
-    email = data.get('email', None)
-    password = data.get('password', None)
+    email = data.get('email')
+    password = data.get('password')
 
     user = authenticate(email=email, password=password)
     print user

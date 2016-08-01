@@ -15,17 +15,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by consultadd on 29/7/16.
  */
 var core_1 = require('@angular/core');
+var login_service_1 = require("./login.service");
+var router_deprecated_1 = require("@angular/router-deprecated");
 var LoginComponent = (function () {
-    function LoginComponent() {
+    function LoginComponent(_loginService, _router) {
+        this._loginService = _loginService;
+        this._router = _router;
     }
+    LoginComponent.prototype.onLSubmit = function () {
+        this._loginService.login(this.luser).subscribe(function (res) {
+            console.log("Success", res);
+        });
+        this._router.navigate(['Home']);
+    };
     LoginComponent = __decorate([
         core_1.Component({
             selector: 'login',
             templateUrl: 'templates/login.template.html',
             styleUrls: ['css/styles.css'],
-            directives: []
+            providers: [login_service_1.LoginService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [login_service_1.LoginService, router_deprecated_1.Router])
     ], LoginComponent);
     return LoginComponent;
 }());

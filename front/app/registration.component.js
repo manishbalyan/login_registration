@@ -13,22 +13,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  */
 var core_1 = require('@angular/core');
 var registration_service_1 = require("./registration.service");
+var router_deprecated_1 = require("@angular/router-deprecated");
 var RegistrationComponent = (function () {
-    function RegistrationComponent(_userService) {
+    function RegistrationComponent(_userService, _router) {
         // constructor
         this._userService = _userService;
+        this._router = _router;
     }
     RegistrationComponent.prototype.onSubmit = function () {
+        var _this = this;
         this._userService.insertUser(this.newUser).subscribe(function (res) {
             console.log('print user from component ', res);
+            _this._router.navigate(['Login']);
             // router.route change to your new page ...
         });
-    };
-    RegistrationComponent.prototype.onLogin = function () {
-        var tempJSON = {
-            email: 'email@email.com',
-            password: ''
-        };
     };
     RegistrationComponent.prototype.ngOnInit = function () {
         this.newUser = { name: '', email: "", password: "" };
@@ -38,9 +36,9 @@ var RegistrationComponent = (function () {
             selector: 'registration',
             templateUrl: 'templates/registration.template.html',
             styleUrls: ['css/styles.css'],
-            providers: [registration_service_1.RegistrationService]
+            providers: [registration_service_1.RegistrationService],
         }), 
-        __metadata('design:paramtypes', [registration_service_1.RegistrationService])
+        __metadata('design:paramtypes', [registration_service_1.RegistrationService, router_deprecated_1.Router])
     ], RegistrationComponent);
     return RegistrationComponent;
 }());

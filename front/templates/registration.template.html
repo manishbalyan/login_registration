@@ -7,11 +7,12 @@
 <body>
     <h2 id="registration-heading">Registration Form</h2>
     <form #myForm="ngForm" (ngSubmit)="onSubmit()">
-        <div class=container>
+        <div class=container >
             <div class=row>
                 <div>
-                    <label>Name</label>
+                    <label >Name</label>
                     <input id=name class=form-control ngControl="name" [(ngModel)]="newUser.name" required name="name">
+                    {{newUser.name}}
                 </div><br/>
 
                 <div>

@@ -9,27 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 /**
- * Created by consultadd on 29/7/16.
+ * Created by consultadd on 1/8/16.
  */
 var core_1 = require('@angular/core');
 var http_1 = require("@angular/http");
 require('rxjs/add/operator/map');
-var RegistrationService = (function () {
-    function RegistrationService(_http) {
+var LoginService = (function () {
+    function LoginService(_http) {
         this._http = _http;
     }
-    RegistrationService.prototype.insertUser = function (user) {
+    LoginService.prototype.login = function (luser) {
         var headers = new http_1.Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        var body = JSON.stringify(luser);
+        headers.append('Content-Type', 'application/json');
         // Promise.resolve(USER).then((users: User[])=>users.push(user)user);
         // return this._http.post('http://127.0.0.1:8000/user',JSON.stringify(user))
-        return this._http.post('http://127.0.0.1:8000/user/', user, { headers: headers }).map(function (res) { return res.json(); });
+        return this._http.post('http://127.0.0.1:8000/login/', body, { headers: headers }).map(function (res) {
+        });
     };
-    RegistrationService = __decorate([
+    LoginService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], RegistrationService);
-    return RegistrationService;
+    ], LoginService);
+    return LoginService;
 }());
-exports.RegistrationService = RegistrationService;
-//# sourceMappingURL=registration.service.js.map
+exports.LoginService = LoginService;
+//# sourceMappingURL=login.service.js.map

@@ -12,9 +12,6 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class RegistrationService {
     constructor(private _http: Http){}
-    getUser(){
-        return Promise.resolve(USER);
-    }
 
     insertUser(user: User){
         var headers = new Headers();
@@ -22,9 +19,7 @@ export class RegistrationService {
         // Promise.resolve(USER).then((users: User[])=>users.push(user)user);
        // return this._http.post('http://127.0.0.1:8000/user',JSON.stringify(user))
 
-         return this._http.post('http://127.0.0.1:8000/user/', user).map(res => {
-
-        });
+         return this._http.post('http://127.0.0.1:8000/user/', user, {headers: headers}).map(res => res.json());
 
 
     }

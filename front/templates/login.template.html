@@ -6,20 +6,21 @@
 </head>
 <body>
 <h2 id="login-heading">Login Form</h2>
-<form ngFormModel="loginForm">
-    <div class=container>
+<form #myForm="ngForm" (ngSubmit)="onLSubmit()">
+    <div class=container >
         <div class=row>
             <div>
                 <label>Email</label>
-                <input type="email" class="form-control" ngFormControl="loginForm.controls['email]">
+                <input type="email" class=form-control ngControl="email" [(ngModel)]="luser.email" required name="email">
+                {{luser.email}}
             </div><br/>
 
             <div>
                 <label>Password</label>
-                <input type="password" id=password class=form-control ngFormControl="loginForm.controls['email]">
+                <input type="password" id=password class=form-control ngControl="password" [(ngModel)]="luser.password" required name="password">
             </div><br/>
 
-            <button class="btn btn-primary">Login</button>
+            <button class="btn btn-primary" type="submit">Login</button>
         </div>
     </div>
 </form>

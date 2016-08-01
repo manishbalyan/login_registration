@@ -14,16 +14,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var registration_component_1 = require("./registration.component");
 var login_component_1 = require("./login.component");
+var router_deprecated_1 = require("@angular/router-deprecated");
+var home_component_1 = require("./home.component");
 var AppComponent = (function () {
     function AppComponent() {
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "<h1 id=\"main-heading\">Login and Registration </h1>       \n                <div class=\"row\">\n                    <div class=\"col-lg-6\">\n                        <registration></registration>\n                    </div>\n                    <div class=\"col-lg-6\">\n                        <login></login>\n                    </div>\n                </div>        \n    ",
+            template: " \n      <header>\n            <nav>\n                <ul class=\"nav nav-pills\">\n                    <li role=\"presentation\" class=\"btn btn-default \"><a [routerLink]=\"['Register']\">Registration</a></li>\n                    <li role=\"presentation\" class=\"btn btn-default \"><a [routerLink]=\"['Login']\">Login</a> </li>\n                </ul>\n            </nav>\n       </header>\n            <br><br>\n                <div class=\"row\">\n                    <div>\n                        <router-outlet></router-outlet> \n                     </div>\n                </div>        \n    ",
             styleUrls: ['css/styles.css'],
-            directives: [registration_component_1.RegistrationComponent, login_component_1.LoginComponent]
-        }), 
+            directives: [registration_component_1.RegistrationComponent, login_component_1.LoginComponent, router_deprecated_1.ROUTER_DIRECTIVES]
+        }),
+        router_deprecated_1.RouteConfig([
+            { path: '/register', name: 'Register', component: registration_component_1.RegistrationComponent },
+            { path: '/login', name: 'Login', component: login_component_1.LoginComponent },
+            { path: '/home', name: 'Home', component: home_component_1.HomeComponent }
+        ]), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;

@@ -9,10 +9,10 @@ body {
     color: #2aabd2;
 }
 #registration-heading, #login-heading{
-    text-align: center;
+    padding-left: 15%;
     color: #00AA00;
     font-family: Cambria, Palatino Linotype, Palatino, Liberation Serif, serif;
 }
 .form-control{
-    width: 45%;
+    width: 40%;
 }
